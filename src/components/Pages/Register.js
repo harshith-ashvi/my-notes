@@ -42,7 +42,7 @@ const Register = (props) => {
     const [ showPassword, setShowPassword ] = useState(false)
 
     const dispatch = useDispatch()
-    const registerErrors = useSelector(state => state.user?.errors) || {}
+    const registerErrors = useSelector(state => state.user.errors) || {}
 
     const initialValues = {
         username: "",
@@ -152,7 +152,7 @@ const Register = (props) => {
                         <Grid container justifyContent="flex-end" sx={{ paddingBottom: 5 }}>
                             <Grid item>
                                 <Link href="/login" variant="body2" underline="hover">
-                                    Already have an account? Sign in
+                                    Already have an account? Login
                                 </Link>
                             </Grid>
                         </Grid>

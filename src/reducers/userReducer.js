@@ -14,6 +14,18 @@ const userReducers = (state = userInitialState, action) => {
             return {...state, errors: {}}
         }
 
+        case "LOADING_UPDATE" : {
+            return {...state, isLoading: !state.isLoading}
+        }
+
+        case "ADD_USER_DETAILS" : {
+            return {...state, data: action.payload}
+        }
+
+        case "REMOVE_DATA" : {
+            return {...state, data: {}}
+        }
+
         default : {
             return {...state}
         }
