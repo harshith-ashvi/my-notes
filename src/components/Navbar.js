@@ -11,8 +11,8 @@ const Navbar = (props) => {
                         My Notes
                     </Typography>
                     <Button color="inherit" href="/" sx={{color: "white"}} size="large">Home</Button>
-                    <Button color="inherit" href="#" sx={{color: "white"}} size="large">Register</Button>
-                    <Button color="inherit" href="#" sx={{color: "white"}} size="large">Login</Button>
+                    <Button color="inherit" href="/register" sx={{color: "white"}} size="large">Register</Button>
+                    <Button color="inherit" href="/login" sx={{color: "white"}} size="large">Login</Button>
                 </Toolbar>
             </AppBar>
         </Box>
