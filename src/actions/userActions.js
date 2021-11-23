@@ -67,15 +67,23 @@ export const startUserAllDetails = (token) => {
         }
     })
 
+    const notesDetails = axios.get("http://dct-user-auth.herokuapp.com/api/notes", {
+        "headers": {
+            "x-auth": token
+        }
+    })
+
     return (
         (dispatch) => {
             dispatch(loadingUpdate())
             return (
-                Promise.all([userDetails])
+                Promise.all([userDetails, notesDetails])
                     .then((response) => {
-                        const [ account ] = response
+                        const [ account, notes ] = response
+                        console.log(notes)
                         dispatch(loadingUpdate())
                         dispatch(addUserDetails(account.data))
+                        dispatch(addNotesDetails(notes.data.reverse()))
                     })
                     .catch((err) => {
                         alert(err.message)
@@ -101,5 +109,12 @@ export const loadingUpdate = () => {
 export const removeData = () => {
     return {
         type: "REMOVE_DATA"
+    }
+}
+
+export const addNotesDetails = (allNotes) => {
+    return {
+        type: "ADD_ALL_NOTES",
+        payload: allNotes
     }
 }

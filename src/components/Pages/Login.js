@@ -50,7 +50,7 @@ const Login = (props) => {
         dispatch(clearUserErrors())
     }, [])
 
-    const { handleChange, handleSubmit, values, errors, handleReset } = useFormik({
+    const { handleChange, handleSubmit, values, errors } = useFormik({
         initialValues,
         validationSchema,
         validateOnChange: false,
@@ -69,7 +69,7 @@ const Login = (props) => {
                 <Typography variant="h4" component="h1">
                     Login
                 </Typography>
-                <Box component="form" noValidate sx={{mt: 3}} onSubmit={handleSubmit} onReset={handleReset}>
+                <Box component="form" noValidate sx={{mt: 3}} onSubmit={handleSubmit}>
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
                             <TextField

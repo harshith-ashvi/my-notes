@@ -17,7 +17,7 @@ const Account = (props) => {
 
     return (
         <>
-            {Object.keys(data).length === 0? (
+            {!localStorage.getItem("token")? (
                 <Box sx={mainBoxStyle}>
                     <Typography variant="h5">You must Login first</Typography>
                 </Box>

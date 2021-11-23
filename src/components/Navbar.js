@@ -1,6 +1,6 @@
 import React from "react";
 import { Box } from "@mui/system";
-import { AppBar, Button, CircularProgress, Toolbar, Typography, Link } from "@mui/material";
+import { AppBar, Button, CircularProgress, Toolbar, Typography } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { removeData } from "../actions/userActions";
@@ -39,7 +39,7 @@ const Navbar = (props) => {
                             <Button sx={{color: "white"}} onClick={() => handleButtonClick("/")}>Home</Button>
                             { Object.keys(data).length > 0? (
                                 <>
-                                    <Button sx={{color: "white"}} onClick={() => handleButtonClick("#")}>Notes</Button>
+                                    <Button sx={{color: "white"}} onClick={() => handleButtonClick("/notes")}>Notes</Button>
                                     <Button sx={{color: "white"}} onClick={() => handleButtonClick("/account")}>Account</Button>
                                     <Button sx={{color: "white"}} onClick={handleLogout}>Logout</Button>
                                     
