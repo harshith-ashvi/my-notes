@@ -55,3 +55,32 @@ export const deleteNote = (id) => {
         payload: id
     }
 }
+
+export const startNoteEdit = (id, note, toggle) => {
+    return (
+        (dispatch) => {
+            return (
+                axios.put(`http://dct-user-auth.herokuapp.com/api/notes/${id}`, note, {
+                    "headers": {
+                        "x-auth": localStorage.getItem("token")
+                    }
+                })
+                    .then((response) => {
+                        const result = response.data
+                        dispatch(editNote(result))
+                        toggle()
+                    })
+                    .catch((err) => {
+                        alert(err.message)
+                    })
+            )
+        }
+    )
+}
+
+export const editNote = (note) => {
+    return {
+        type: "EDIT_NOTE",
+        payload: note
+    }
+}

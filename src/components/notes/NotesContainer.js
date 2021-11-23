@@ -1,4 +1,4 @@
-import { Container, Typography, Grid, CircularProgress } from "@mui/material";
+import { Container, Typography, Grid, CircularProgress, Alert, Link } from "@mui/material";
 import React from"react";
 import { Box } from "@mui/system";
 import NotesList from "./NotesList";
@@ -21,13 +21,13 @@ const NotesContainer = () => {
         <>
             { !localStorage.getItem("token")? (
                 <Box sx={mainBoxStyle}>
-                    <Typography variant="h5">You must Login first</Typography>
+                    <Alert severity="error">You must <Link href="/login" underline="hover">Login</Link> first</Alert>
                 </Box>
             ) : (
                 isLoading? (
-                    <div>
+                    <Box sx={{ml: "50%", mt: 25}}>
                         <CircularProgress/>
-                    </div>
+                    </Box>
                 ) : (
                     <Container>
                         <Box sx={{mt: 4}}>

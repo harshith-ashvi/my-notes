@@ -26,9 +26,9 @@ const Navbar = (props) => {
     return (
         <>
             { isLoading? (
-                <div>
+                <Box sx={{ml: "50%"}}>
                     <CircularProgress />
-                </div>
+                </Box>
             ) : (
                 <Box sx={{ flexGrow: 1 }}>
                     <AppBar position="static">
