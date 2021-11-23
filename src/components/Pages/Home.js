@@ -1,11 +1,21 @@
 import React from "react";
-import { Container, Typography } from "@mui/material";
+import { CircularProgress, Container, Typography } from "@mui/material";
+import { useSelector } from "react-redux";
 
 const Home = (props) => {
+    const loading = useSelector(state => state.user.isLoading)
+
     return (
-        <Container>
-            <Typography>Home Page</Typography>
-        </Container>
+        <>
+            { loading? (
+                <CircularProgress/>
+            ) : (
+                <Container>
+                    <Typography>Home Page</Typography>
+                </Container>
+            ) }
+        </>
+        
     )
 }
 
