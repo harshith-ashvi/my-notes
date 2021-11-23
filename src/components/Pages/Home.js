@@ -19,7 +19,7 @@ const Home = (props) => {
     return (
         <>
             { loading? (
-                <Box sx={{ml: "50%"}}>
+                <Box sx={{ml: "50%", mt: 25}}>
                     <CircularProgress />
                 </Box>
             ) : (

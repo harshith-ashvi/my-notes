@@ -6,9 +6,7 @@ import NoteItem from "./NoteItem";
 
 const mainBoxStyle = {
     marginTop: 12,
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
+    marginRight: "50%"
 }
 
 const NotesList = (props) => {
