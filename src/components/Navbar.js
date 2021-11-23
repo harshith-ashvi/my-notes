@@ -1,8 +1,8 @@
 import React from "react";
 import { Box } from "@mui/system";
-import { AppBar, Button, CircularProgress, Toolbar, Typography } from "@mui/material";
+import { AppBar, Button, CircularProgress, Toolbar, Typography, Link } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router";
+import { useHistory } from "react-router-dom";
 import { removeData } from "../actions/userActions";
 
 const Navbar = (props) => {
@@ -15,6 +15,10 @@ const Navbar = (props) => {
         localStorage.removeItem("token")
         alert("Successfully logged out")
         history.push("/")
+    }
+
+    const handleButtonClick = (pageUrl) => {
+        history.push(pageUrl)
     }
 
     const { isLoading, data } = user
@@ -32,17 +36,18 @@ const Navbar = (props) => {
                             <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
                                 My Notes
                             </Typography>
-                            <Button color="inherit" href="/" sx={{color: "white"}} size="large">Home</Button>
+                            <Button sx={{color: "white"}} onClick={() => handleButtonClick("/")}>Home</Button>
                             { Object.keys(data).length > 0? (
                                 <>
-                                    <Button color="inherit" href="#" sx={{color: "white"}} size="large">Notes</Button>
-                                    <Button color="inherit" href="#" sx={{color: "white"}} size="large">Account</Button>
-                                    <Button color="inherit" onClick={handleLogout} sx={{color: "white"}} size="large">Logout</Button>
+                                    <Button sx={{color: "white"}} onClick={() => handleButtonClick("#")}>Notes</Button>
+                                    <Button sx={{color: "white"}} onClick={() => handleButtonClick("/account")}>Account</Button>
+                                    <Button sx={{color: "white"}} onClick={handleLogout}>Logout</Button>
+                                    
                                 </>
                             ) : (
                                 <>
-                                    <Button color="inherit" href="/register" sx={{color: "white"}} size="large">Register</Button>
-                                    <Button color="inherit" href="/login" sx={{color: "white"}} size="large">Login</Button>
+                                    <Button sx={{color: "white"}} onClick={() => handleButtonClick("/register")}>Register</Button>
+                                    <Button sx={{color: "white"}} onClick={() => handleButtonClick("/login")}>Login</Button>
                                 </>
                             ) }
                         </Toolbar>
