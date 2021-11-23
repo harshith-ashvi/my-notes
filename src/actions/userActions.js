@@ -80,7 +80,6 @@ export const startUserAllDetails = (token) => {
                 Promise.all([userDetails, notesDetails])
                     .then((response) => {
                         const [ account, notes ] = response
-                        console.log(notes)
                         dispatch(loadingUpdate())
                         dispatch(addUserDetails(account.data))
                         dispatch(addNotesDetails(notes.data.reverse()))
