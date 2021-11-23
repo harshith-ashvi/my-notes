@@ -16,6 +16,12 @@ material UI, react-router-dom, axios, formik, yup, react-redux, redux-thunk
 
 ---
 
+### Demo
+
+![My Notes Demo](https://user-images.githubusercontent.com/52885139/143036178-cb261ff8-dd0b-422a-b369-a65b9f2dfa7d.gif)
+
+---
+
 ### Features
 
 - Authentication.
@@ -28,7 +34,10 @@ material UI, react-router-dom, axios, formik, yup, react-redux, redux-thunk
   - Authenticated users can check their details like email and username.
 
 - Notes Module
+
   - Authenticated users can perform CRUD operations on notes.
-  - Sort tickets related to individual departments as completed and not completed.
+
+- 404 Page
+  - 404 Not Found Componet added if user search url that doesn't exist.
 
 ---
