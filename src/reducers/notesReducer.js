@@ -26,6 +26,16 @@ const notesReducer = (state = notesInitialState, action) => {
             return {...state, data: state.data.filter(note => note._id !== action.payload)}
         }
 
+        case "EDIT_NOTE" : {
+            return {...state, data: state.data.map(note => {
+                if (note._id === action.payload._id) {
+                    return {...note, ...action.payload}
+                } else {
+                    return {...note}
+                }
+            })}
+        }
+
         default : {
             return {...state}
         }
